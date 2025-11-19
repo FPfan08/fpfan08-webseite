@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPfan08</title>
+    
+    <style>
+        /* Allgemeine Einstellungen für die gesamte Seite */
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* --- Bereich für das Logo (oben links) --- */
+        #logo-container {
+            position: fixed; 
+            top: 20px; 
+            left: 20px; 
+            z-index: 110; 
+        }
+        
+        #logo-container img {
+            /* *** ÄNDERUNG: Logo-Größe angepasst (von 50px auf 80px) *** */
+            height: 80px; /* Neue Beispielhöhe */
+            width: auto;
+            display: block;
+        }
+
+
+        /* --- Bereich für das Bild und die Überschrift --- */
+        .image-container {
+            position: relative;
+            height: 80vh; 
+            text-align: center;
+            color: white;
+            overflow: hidden; 
+        }
+
+        /* Das Bild selbst */
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+        }
+
+        /* Die Überschrift */
+        .image-container h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 3em; 
+            margin: 0; 
+            z-index: 10; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+        }
+
+        /* --- Bereich für das Offene-Menü (Hamburger-Menü) --- */
+        /* ... (CSS für Hamburger-Menü bleibt unverändert) ... */
+        .open-btn {
+            position: fixed; 
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            z-index: 100; 
+            opacity: 1; 
+            transition: opacity 0.3s;
+        }
+        
+        .open-btn.hidden {
+            opacity: 0; 
+            pointer-events: none; 
+        }
+
+        .sidebar {
+            height: 100%; 
+            width: 0; 
+            position: fixed; 
+            z-index: 99; 
+            top: 0;
+            right: 0;
+            background-color: #111; 
+            overflow-x: hidden; 
+            transition: 0.5s; 
+            padding-top: 60px; 
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            color: #f1f1f1; 
+        }
+        
+        /* --- NEU: Bereich für die Fußzeile (Footer) --- */
+        footer {
+            background-color: #333333; /* Dunkelgrauer Hintergrund */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px; /* Abstand zwischen den Links */
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #cccccc;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="logo-container">
+        <img src="logo.png" alt="FPfan08 Logo">
+    </div>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <a href="ueber_mich.html">Über mich</a>
+        <a href="impressum.html">Impressum</a>
+    </div>
+
+    <button id="openBtn" class="open-btn" onclick="openNav()">&#9776;</button>
+
+    <header>
+        <div class="image-container">
+            <img src="Dynamite.jpg" alt="Ein Repräsentationsbild für FPfan08">
+            <h1>Hallo, ich bin FPfan08</h1>
+        </div>
+    </header>
+
+    <main style="padding: 20px; text-align: center; min-height: 20vh;">
+        <h2>Willkommen</h2>
+        <p>Dies ist der Hauptinhalt unterhalb deines Bildes.</p>
+        <p>Probiere das Hamburger-Menü oben rechts oder die Links in der Fußzeile (unten) aus!</p>
+    </main>
+
+   <footer>
+        <div class="footer-nav">
+            <a href="ueber_mich.html">Über mich</a>
+            <span>|</span> 
+            <a href="impressum.html">Impressum</a>
+            <span>|</span>
+            
+            <a href="https://www.instagram.com/fpfan08/" target="_blank" title="Instagram">&#x1F4F7; Instagram</a>
+            <span>|</span>
+            <a href="https://www.youtube.com/@FotoserviceSchiesslerFPfan08" target="_blank" title="YouTube">&#x25B6; YouTube</a>
+        </div>
+        <p style="font-size: 0.8em; margin-top: 10px;">&copy; 2025 FPfan08. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        const openBtn = document.getElementById("openBtn");
+
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            openBtn.classList.add("hidden"); 
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            openBtn.classList.remove("hidden");
+        }
+    </script>
+    
+</body>
+</html>
