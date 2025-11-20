@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPfan08 | Social Media</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* --- Logo --- */
+        #logo-container {
+            position: fixed; 
+            top: 20px; 
+            left: 20px; 
+            z-index: 110; 
+        }
+        
+        #logo-container img {
+            height: 80px; 
+            width: auto;
+            display: block;
+        }
+
+        /* --- Bereich für das Bild und die Überschrift (Header) --- */
+        .image-container {
+            position: relative;
+            height: 40vh; 
+            text-align: center;
+            color: white;
+            overflow: hidden; 
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+        }
+
+        .image-container h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 3em; 
+            margin: 0; 
+            z-index: 10; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+        }
+
+        /* --- Hamburger Menü --- */
+        .open-btn {
+            position: fixed; 
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            z-index: 100; 
+            opacity: 1; 
+            transition: opacity 0.3s;
+        }
+        
+        .open-btn.hidden {
+            opacity: 0; 
+            pointer-events: none; 
+        }
+
+        .sidebar {
+            height: 100%; 
+            width: 0; 
+            position: fixed; 
+            z-index: 99; 
+            top: 0;
+            right: 0;
+            background-color: #111; 
+            overflow-x: hidden; 
+            transition: 0.5s; 
+            padding-top: 60px; 
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            color: #f1f1f1; 
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background-color: #333333; 
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px; 
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #cccccc;
+        }
+        
+        /* --- Social Media Blöcke Styling --- */
+        .social-container {
+            max-width: 800px;
+            margin: 40px auto; 
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .social-link-block {
+            display: block;
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .social-link-block:hover {
+            transform: translateY(-3px);
+        }
+
+        .youtube-block:hover {
+            background-color: #ff0000; /* YouTube-Rot */
+            color: white;
+        }
+
+        .instagram-block:hover {
+            background-color: #e4405f; /* Instagram-Farbe */
+            color: white;
+        }
+        
+        .whatsapp-block:hover {
+            background-color: #25D366; /* WhatsApp-Grün */
+            color: white;
+        }
+        
+        .social-icon {
+            font-size: 2em; 
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="logo-container">
+        <a href="index.html"><img src="logo.png" alt="FPfan08 Logo"></a>
+    </div>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <a href="ueber_mich.html">Über mich</a>
+        <a href="impressum.html">Impressum</a>
+    </div>
+
+    <button id="openBtn" class="open-btn" onclick="openNav()">&#9776;</button>
+
+    
+    <header>
+        <div class="image-container">
+            <img src="Annaberger Kät.jpg" alt="Bild Social Media">
+            
+            <h1>Meine Kanäle</h1>
+        </div>
+    </header>
+
+    
+    <main>
+        <div class="social-container">
+            <h2>Finde mich in den sozialen Medien</h2>
+            <p>Klicke hier, um direkt zu meinen Social Media Kanälen zu gelangen.</p>
+            
+            <a href="#dein-youtube-link" target="_blank" class="social-link-block youtube-block">
+                <span class="social-icon">&#x25B6;</span> YouTube
+            </a>
+            
+            <a href="#dein-instagram-link" target="_blank" class="social-link-block instagram-block">
+                <span class="social-icon">&#x1F4F7;</span> Instagram
+            </a>
+            
+            <a href="#dein-whatsapp-kanal-link" target="_blank" class="social-link-block whatsapp-block">
+                <span class="social-icon">&#x1F4E3;</span> WhatsApp Kanal
+            </a>
+            
+            <p style="margin-top: 30px;">Ich freue mich auf deine Kommentare und Likes!</p>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="ueber_mich.html">Über mich</a>
+            <span>|</span>
+            <a href="impressum.html">Impressum</a>
+            <span>|</span>
+            <a href="#dein-instagram-link" target="_blank" title="Instagram">&#x1F4F7; Instagram</a>
+            <span>|</span>
+            <a href="#dein-youtube-link" target="_blank" title="YouTube">&#x25B6; YouTube</a>
+            <span>|</span>
+            <a href="#dein-whatsapp-kanal-link" target="_blank" title="WhatsApp Kanal">&#x1F4E3; WhatsApp Kanal</a>
+        </div>
+        <p style="font-size: 0.8em; margin-top: 10px;">&copy; 2025 FPfan08. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        const openBtn = document.getElementById("openBtn");
+
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            openBtn.classList.add("hidden"); 
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            openBtn.classList.remove("hidden");
+        }
+    </script>
+    
+</body>
+</html>
