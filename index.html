@@ -14,7 +14,7 @@
             background-color: #f4f4f4;
         }
 
-        /* --- Bereich für das Logo (oben links) --- */
+        /* --- Bereich für das Logo (oben links, fixiert) --- */
         #logo-container {
             position: fixed; 
             top: 20px; 
@@ -23,14 +23,13 @@
         }
         
         #logo-container img {
-            /* *** ÄNDERUNG: Logo-Größe angepasst (von 50px auf 80px) *** */
-            height: 80px; /* Neue Beispielhöhe */
+            height: 80px; /* Logo-Größe */
             width: auto;
             display: block;
         }
 
 
-        /* --- Bereich für das Bild und die Überschrift --- */
+        /* --- Bereich für das Header-Bild und die Überschrift --- */
         .image-container {
             position: relative;
             height: 80vh; 
@@ -39,7 +38,6 @@
             overflow: hidden; 
         }
 
-        /* Das Bild selbst */
         .image-container img {
             width: 100%;
             height: 100%;
@@ -47,7 +45,6 @@
             display: block;
         }
 
-        /* Die Überschrift */
         .image-container h1 {
             position: absolute;
             top: 50%;
@@ -58,11 +55,10 @@
             font-size: 3em; 
             margin: 0; 
             z-index: 10; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Kein grauer Hintergrund mehr, nur Schatten */
         }
 
-        /* --- Bereich für das Offene-Menü (Hamburger-Menü) --- */
-        /* ... (CSS für Hamburger-Menü bleibt unverändert) ... */
+        /* --- Hamburger Menü (Rechts oben) --- */
         .open-btn {
             position: fixed; 
             top: 20px;
@@ -119,7 +115,7 @@
             color: #f1f1f1; 
         }
         
-        /* --- NEU: Bereich für die Fußzeile (Footer) --- */
+        /* --- Fußzeile (Footer) --- */
         footer {
             background-color: #333333; /* Dunkelgrauer Hintergrund */
             color: white;
@@ -130,7 +126,7 @@
         .footer-nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px; /* Abstand zwischen den Links */
+            margin: 0 15px; 
             font-size: 16px;
             transition: color 0.3s;
         }
@@ -139,12 +135,73 @@
             color: #cccccc;
         }
 
+        /* --- Styling für die Karten unterhalb des Header-Bildes (NEU) --- */
+        .intro-text {
+            max-width: 800px;
+            margin: 40px auto 30px auto; 
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex; /* Flexbox für gleichmäßige Verteilung der Karten */
+            justify-content: center;
+            gap: 20px; 
+            max-width: 1100px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            flex: 1; 
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px; 
+            object-fit: cover; 
+            display: block;
+        }
+
+        .card h3 {
+            margin: 15px 0 10px 0;
+            color: #333;
+        }
+
+        .card p {
+            padding: 0 15px 15px 15px;
+            font-size: 0.95em;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: inherit; 
+        }
+
+        /* Responsive Anpassung für Mobilgeräte (wenn nur eine Spalte angezeigt werden soll) */
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column; 
+            }
+        }
     </style>
 </head>
 <body>
 
     <div id="logo-container">
-        <img src="logo.png" alt="FPfan08 Logo">
+        <a href="index.html"><img src="logo.png" alt="FPfan08 Logo"></a>
     </div>
 
     <div id="mySidebar" class="sidebar">
@@ -158,26 +215,56 @@
     <header>
         <div class="image-container">
             <img src="Dynamite.jpg" alt="Ein Repräsentationsbild für FPfan08">
+            
             <h1>Hallo, ich bin FPfan08</h1>
         </div>
     </header>
 
-    <main style="padding: 20px; text-align: center; min-height: 20vh;">
-        <h2>Willkommen</h2>
-        <p>Dies ist der Hauptinhalt unterhalb deines Bildes.</p>
-        <p>Probiere das Hamburger-Menü oben rechts oder die Links in der Fußzeile (unten) aus!</p>
+    <main>
+        <div class="intro-text">
+            <h2>Hallo und herzlich willkommen!</h2>
+            <p>Auf der Offiziellen Webseite von FPfan 08. Schön, dass du den Weg gefunden hast.</p>
+	    <p>Klicke einfach auf eine der Karten unten, um mehr zu erfahren!</p>
+        </div>
+        
+        <div class="card-container">
+            
+            <div class="card">
+                <a href="ueber_mich.html">
+                    <img src="Enterainer Das Karussell.jpg" alt="Bild, das FPfan08 repräsentiert">
+                    <h3>Über mich</h3>
+                    <p>Erfahre mehr über meine Freizeitparkleidenschaft und meine Person.</p>
+                </a>
+            </div>
+            
+            <div class="card">
+                <a href="impressum.html">
+                    <img src="Schildkröte bei Aqualuna und die Wunschschaukel.jpg" alt="Bild, das Kontakt symbolisiert">
+                    <h3>Impressum</h3>
+                    <p>Hier findest du alle Kontaktdaten.</p>
+                </a>
+            </div>
+            
+     <div class="card">
+                <a href="social_media.html">
+                    <img src="1735290263413.jpg" alt="Bild, das Social Media symbolisiert">
+                    <h3>Meine Kanäle</h3>
+                    <p>Besuche mich auf meinen Social Media Seiten! Ich freue mich über deinen Besuch.</p>
+                </a>
+            </div>
+            
+        </div>
     </main>
 
-   <footer>
+    <footer>
         <div class="footer-nav">
             <a href="ueber_mich.html">Über mich</a>
-            <span>|</span> 
+            <span>|</span>
             <a href="impressum.html">Impressum</a>
             <span>|</span>
-            
-            <a href="https://www.instagram.com/fpfan08/" target="_blank" title="Instagram">&#x1F4F7; Instagram</a>
+            <a href="#dein-instagram-link" target="_blank" title="Instagram">&#x1F4F7; Instagram</a>
             <span>|</span>
-            <a href="https://www.youtube.com/@FotoserviceSchiesslerFPfan08" target="_blank" title="YouTube">&#x25B6; YouTube</a>
+            <a href="#dein-youtube-link" target="_blank" title="YouTube">&#x25B6; YouTube</a>
         </div>
         <p style="font-size: 0.8em; margin-top: 10px;">&copy; 2025 FPfan08. Alle Rechte vorbehalten.</p>
     </footer>
