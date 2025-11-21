@@ -6,6 +6,7 @@
     <title>FPfan08 | Impressum</title>
     
     <style>
+        /* Allgemeine Einstellungen */
         body {
             font-family: Arial, sans-serif; 
             margin: 0;
@@ -30,7 +31,7 @@
         /* --- Bereich für das Bild und die Überschrift --- */
         .image-container {
             position: relative;
-            height: 40vh; /* Konsistente Höhe zur "Über mich"-Seite */
+            height: 40vh; 
             text-align: center;
             color: white;
             overflow: hidden; 
@@ -138,7 +139,7 @@
         /* --- Impressum-Inhalt-Stil --- */
         .impressum-content {
             max-width: 800px;
-            margin: 40px auto; /* Zentriert den Inhalt unter dem Header */
+            margin: 40px auto; 
             padding: 20px;
             background-color: white;
             border-radius: 8px;
@@ -151,6 +152,54 @@
             border-bottom: 2px solid #ddd;
             padding-bottom: 10px;
         }
+        
+        /* --- NEU: Floating Button (Grau & Wackelnd) --- */
+        .floating-action-button {
+            position: fixed;
+            bottom: 30px; 
+            right: 30px; 
+            z-index: 1000; 
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s;
+            /* Animation ist 2.5s lang (schnell) */
+            animation: shake 2.5s infinite; 
+        }
+
+        .floating-action-button a {
+            display: block;
+            text-decoration: none;
+            background-color: #555555; /* Grau */
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 12px;
+        }
+
+        .floating-action-button:hover {
+            transform: scale(1.05); 
+            animation: none; 
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            5%, 15%, 25% { transform: translateX(-5px) rotate(-1deg); } 
+            10%, 20%, 30% { transform: translateX(5px) rotate(1deg); }
+            35%, 95% { transform: translateX(0); } 
+        }
+
+        /* Responsive Anpassung */
+        @media (max-width: 768px) {
+            .impressum-content {
+                margin: 20px;
+            }
+            .floating-action-button {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -162,7 +211,7 @@
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
         <a href="ueber_mich.html">Über mich</a>
-        <a href="impressum.html">Impressum</a>
+        <a href="impressum.html" style="color: #ff9900;">Impressum</a> 
     </div>
 
     <button id="openBtn" class="open-btn" onclick="openNav()">&#9776;</button>
@@ -194,21 +243,22 @@
                 E-Mail: [Deine E-Mail-Adresse]
             </p>
             
-            <hr>
-            
             <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <p>
-                Oliver Profaska<br>
-            
+                Oliver Profaska
             </p>
-            
-            <hr>
             
             <h2>Haftung für Inhalte</h2>
             <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
             
         </div>
     </main>
+
+    <div class="floating-action-button">
+        <a href="social_media.html" title="Finde meine Kanäle!">
+            Zu meinen Kanälen
+        </a>
+    </div>
 
     <footer>
         <div class="footer-nav">
@@ -219,6 +269,8 @@
             <a href="https://www.instagram.com/fpfan08/" target="_blank" title="Instagram">&#x1F4F7; Instagram</a>
             <span>|</span>
             <a href="https://www.youtube.com/@FotoserviceSchiesslerFPfan08" target="_blank" title="YouTube">&#x25B6; YouTube</a>
+            <span>|</span>
+            <a href="https://whatsapp.com/channel/0029Vb6P5Ge5kg7Ahkh6q71l" target="_blank" title="WhatsApp Kanal">&#x1F4E3; WhatsApp Kanal</a>
         </div>
         <p style="font-size: 0.8em; margin-top: 10px;">&copy; 2025 FPfan08. Alle Rechte vorbehalten.</p>
     </footer>
@@ -232,11 +284,4 @@
         }
 
         function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            openBtn.classList.remove("hidden");
-        }
-    </script>
-    
-</body>
-
-</html>
+            document
