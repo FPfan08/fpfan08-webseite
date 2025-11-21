@@ -27,10 +27,10 @@
             display: block;
         }
 
-        /* --- Bereich für das Bild und die Überschrift (Kopie von index.html) --- */
+        /* --- Bereich für das Bild und die Überschrift --- */
         .image-container {
             position: relative;
-            height: 40vh; /* NEU: Etwas kleinere Höhe als auf der Startseite, aber immer noch prominent */
+            height: 40vh; 
             text-align: center;
             color: white;
             overflow: hidden; 
@@ -58,7 +58,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
         }
 
-        /* --- Hamburger Menü (CSS-Regeln bleiben unverändert) --- */
+        /* --- Hamburger Menü --- */
         .open-btn {
             position: fixed; 
             top: 20px;
@@ -115,6 +115,7 @@
             color: #f1f1f1; 
         }
         
+        /* --- Footer (aktualisiert) --- */
         footer {
             background-color: #333333; 
             color: white;
@@ -135,11 +136,8 @@
         }
         
         /* --- LAYOUT FÜR "ÜBER MICH" --- */
-        
         .about-section {
-            /* Wichtig: Entfernt den oberen margin, da der neue Header den Platz einnimmt */
             margin: 0 auto 40px auto; 
-            
             display: flex; 
             max-width: 1000px; 
             padding: 20px;
@@ -168,6 +166,43 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        
+        /* --- NEU: Floating Button (Grau & Wackelnd) --- */
+        .floating-action-button {
+            position: fixed;
+            bottom: 30px; 
+            right: 30px; 
+            z-index: 1000; 
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s;
+            /* Animation ist 2.5s lang (schnell) */
+            animation: shake 2.5s infinite; 
+        }
+
+        .floating-action-button a {
+            display: block;
+            text-decoration: none;
+            background-color: #555555; /* Grau */
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 12px;
+        }
+
+        .floating-action-button:hover {
+            transform: scale(1.05); 
+            animation: none; 
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            5%, 15%, 25% { transform: translateX(-5px) rotate(-1deg); } 
+            10%, 20%, 30% { transform: translateX(5px) rotate(1deg); }
+            35%, 95% { transform: translateX(0); } 
+        }
 
         /* Anpassung für kleinere Bildschirme (Mobile) */
         @media (max-width: 768px) {
@@ -181,6 +216,11 @@
                 max-height: 300px;
                 max-width: 80%;
             }
+            /* Position für den Button auf Mobile anpassen */
+             .floating-action-button {
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
@@ -192,7 +232,7 @@
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
-        <a href="ueber_mich.html">Über mich</a>
+        <a href="ueber_mich.html" style="color: #ff9900;">Über mich</a> 
         <a href="impressum.html">Impressum</a>
     </div>
 
@@ -215,7 +255,7 @@
                 <h2>Ein paar Worte zu mir</h2>
                 <p>Hallo! Schön, dass du mehr über mich erfahren möchtest. Mein Name ist Oliver, alias FPfan08, und das ist meine persönliche Ecke im Internet.</p>
                 
-                <p>Ich bin ein leidenschaftlicher Freizeitpark-Fan und ich finde es toll, die Faszination für Achterbahnen und Thematisierung in Videos festzuhalten und anderen mein Hobby zu teilen. Mein Homepark Freizeitpark-Kosmos ist der Freizeitpark Plohn, dessen Entwicklung ich besonders eng und begeistert begleite.</p>
+                <p>Ich bin ein leidenschaftlicher Freizeitpark-Fan und sehe meine Aufgabe darin, die Faszination für Achterbahnen und Thematisierung in hochwertigen Vlogs festzuhalten. Mein Zuhause im Freizeitpark-Kosmos ist der Freizeitpark Plohn, dessen Entwicklung ich besonders eng und begeistert begleite.</p>
                 
                 <h3>Meine Hobbys</h3>
                 <ul>
@@ -234,7 +274,13 @@
         </div>
     </main>
 
-   <footer>
+    <div class="floating-action-button">
+        <a href="social_media.html" title="Finde meine Kanäle!">
+            Zu meinen Kanälen
+        </a>
+    </div>
+
+    <footer>
         <div class="footer-nav">
             <a href="ueber_mich.html">Über mich</a>
             <span>|</span>
@@ -244,6 +290,8 @@
             <a href="https://www.instagram.com/fpfan08/" target="_blank" title="Instagram">&#x1F4F7; Instagram</a>
             <span>|</span>
             <a href="https://www.youtube.com/@FotoserviceSchiesslerFPfan08" target="_blank" title="YouTube">&#x25B6; YouTube</a>
+            <span>|</span>
+            <a href="https://whatsapp.com/channel/0029Vb6P5Ge5kg7Ahkh6q71l" target="_blank" title="WhatsApp Kanal">&#x1F4E3; WhatsApp Kanal</a>
         </div>
         <p style="font-size: 0.8em; margin-top: 10px;">&copy; 2025 FPfan08. Alle Rechte vorbehalten.</p>
     </footer>
@@ -263,6 +311,4 @@
     </script>
     
 </body>
-
 </html>
-
