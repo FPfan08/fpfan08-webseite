@@ -55,10 +55,10 @@
             font-size: 3em; 
             margin: 0; 
             z-index: 10; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Kein grauer Hintergrund mehr, nur Schatten */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-        /* --- Hamburger Menü (Rechts oben) --- */
+        /* --- Hamburger Menü (Rechts oben, fixiert) --- */
         .open-btn {
             position: fixed; 
             top: 20px;
@@ -135,7 +135,7 @@
             color: #cccccc;
         }
 
-        /* --- Styling für die Karten unterhalb des Header-Bildes (NEU) --- */
+        /* --- Styling für die Karten unterhalb des Header-Bildes --- */
         .intro-text {
             max-width: 800px;
             margin: 40px auto 30px auto; 
@@ -190,10 +190,53 @@
             color: inherit; 
         }
 
-        /* Responsive Anpassung für Mobilgeräte (wenn nur eine Spalte angezeigt werden soll) */
+        /* --- Styling und Animation für den schwebenden Button (GRAU, SCHNELLER) --- */
+        .floating-action-button {
+            position: fixed;
+            bottom: 30px; 
+            right: 30px; 
+            z-index: 1000; 
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s;
+            /* Animation ist 2.5s lang (schnell) */
+            animation: shake 2.5s infinite; 
+        }
+
+        .floating-action-button a {
+            display: block;
+            text-decoration: none;
+            /* Hintergrundfarbe Grau */
+            background-color: #555555; 
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 12px;
+        }
+
+        .floating-action-button:hover {
+            transform: scale(1.05); 
+            animation: none; /* Animation stoppen, wenn der Nutzer mit der Maus drauf ist */
+        }
+        
+        /* Keyframes definieren, wie das Element wackeln soll */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            5%, 15%, 25% { transform: translateX(-5px) rotate(-1deg); } 
+            10%, 20%, 30% { transform: translateX(5px) rotate(1deg); }
+            35%, 95% { transform: translateX(0); } 
+        }
+
+        /* Responsive Anpassung für Mobilgeräte */
         @media (max-width: 768px) {
             .card-container {
                 flex-direction: column; 
+            }
+            .floating-action-button {
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -215,7 +258,6 @@
     <header>
         <div class="image-container">
             <img src="Dynamite.jpg" alt="Ein Repräsentationsbild für FPfan08">
-            
             <h1>Hallo, ich bin FPfan08</h1>
         </div>
     </header>
@@ -224,8 +266,8 @@
         <div class="intro-text">
             <h2>Hallo und herzlich willkommen!</h2>
             <p>Auf der Offiziellen Webseite von FPfan 08. Schön, dass du den Weg gefunden hast.</p>
-	    <p>Klicke einfach auf eine der Karten unten, um mehr zu erfahren!</p>
-        </div>
+         <p>Klicke einfach auf eine der Karten unten, um mehr zu erfahren!</p>
+</div>
         
         <div class="card-container">
             
@@ -245,8 +287,8 @@
                 </a>
             </div>
             
-     <div class="card">
-                <a href="social_media.html">
+            <div class="card">
+                <a href="social_media.html"> 
                     <img src="1735290263413.jpg" alt="Bild, das Social Media symbolisiert">
                     <h3>Meine Kanäle</h3>
                     <p>Besuche mich auf meinen Social Media Seiten! Ich freue mich über deinen Besuch.</p>
@@ -255,6 +297,12 @@
             
         </div>
     </main>
+    
+    <div class="floating-action-button">
+        <a href="social_media.html" title="Finde meine Kanäle!">
+            Zu meinen Kanälen
+        </a>
+    </div>
 
     <footer>
         <div class="footer-nav">
@@ -262,9 +310,11 @@
             <span>|</span>
             <a href="impressum.html">Impressum</a>
             <span>|</span>
-            <a href="https://www.instagram.com/fpfan08/" target="_blank" target="_blank" title="Instagram">&#x1F4F7; Instagram</a>
+            <a href="https://www.instagram.com/fpfan08/" target="_blank" title="Instagram">&#x1F4F7; Instagram</a>
             <span>|</span>
             <a href="https://www.youtube.com/@FotoserviceSchiesslerFPfan08" target="_blank" title="YouTube">&#x25B6; YouTube</a>
+            <span>|</span>
+            <a href="https://whatsapp.com/channel/0029Vb6P5Ge5kg7Ahkh6q71l" target="_blank" title="WhatsApp Kanal">&#x1F4E3; WhatsApp Kanal</a>
         </div>
         <p style="font-size: 0.8em; margin-top: 10px;">&copy; 2025 FPfan08. Alle Rechte vorbehalten.</p>
     </footer>
@@ -284,5 +334,4 @@
     </script>
     
 </body>
-
 </html>
