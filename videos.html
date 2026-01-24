@@ -4,11 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPfan08 | Meine Videos</title>
-    
+
     <link rel="icon" type="image/png" href="favicon.png"> 
-    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "FPfan08",
+      "url": "https://fpfan08.github.io/fpfan08-webseite/"
+    }
+    </script>
+
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+
+        /* --- PRELOADER STYLE --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loader-logo {
+            height: 60px;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        .loader-circle {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #333;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } }
+        .preloader-hidden { opacity: 0; pointer-events: none; }
 
         /* --- Logo --- */
         #logo-container { position: fixed; top: 20px; left: 20px; z-index: 110; }
@@ -30,38 +71,15 @@
         .sidebar a:hover { color: #f1f1f1; }
         .close-btn { position: absolute; top: 0; right: 25px; font-size: 36px; color: #f1f1f1; }
 
-        /* --- Video Bereich (Automatisch) --- */
-        .video-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Format */
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        /* --- Video Bereich --- */
+        .video-container { max-width: 1000px; margin: 40px auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
         /* --- Floating Button --- */
         .floating-action-button { position: fixed; bottom: 30px; right: 30px; z-index: 1000; animation: shake 2.5s infinite; }
         .floating-action-button a { display: block; text-decoration: none; background-color: #555555; color: white; padding: 15px 20px; font-weight: bold; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        
+
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             5%, 15%, 25% { transform: translateX(-5px) rotate(-1deg); } 
@@ -69,7 +87,7 @@
             35%, 95% { transform: translateX(0); } 
         }
 
-        /* --- Footer (E-Mail entfernt) --- */
+        /* --- Footer --- */
         footer { background-color: #333333; color: white; padding: 20px 0; text-align: center; }
         .footer-nav a { color: white; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
         .footer-nav a:hover { color: #cccccc; }
@@ -78,6 +96,11 @@
     </style>
 </head>
 <body>
+
+    <div id="preloader">
+        <img src="logo.png" alt="Loading Logo" class="loader-logo">
+        <div class="loader-circle"></div>
+    </div>
 
     <div id="logo-container">
         <a href="index.html"><img src="logo.png" alt="FPfan08 Logo"></a>
@@ -104,7 +127,12 @@
             <h2>Aktuelle Uploads</h2>
             <p>Hier findest du immer meine neuesten Video direkt von YouTube:</p>
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/videoseries?list=UUHXyNY7CIzhvG5erpKRFoaw" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/videoseries?list=UUHXyNY7CIzhvG5erpKRFoaw" 
+                    title="FPfan08 YouTube Videos"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
             </div>
             <p style="margin-top: 20px;">
                 <a href="https://www.youtube.com/@FotoserviceSchiesslerFPfan08" target="_blank" style="color: #cc0000; font-weight: bold; text-decoration: none;">
@@ -130,6 +158,12 @@
     </footer>
 
     <script>
+        // Preloader Logik
+        window.addEventListener("load", function() {
+            const preloader = document.getElementById("preloader");
+            preloader.classList.add("preloader-hidden");
+        });
+
         function openNav() {
             document.getElementById("mySidebar").style.width = "250px";
             document.getElementById("openBtn").classList.add("hidden");
@@ -140,5 +174,4 @@
         }
     </script>
 </body>
-
 </html>
