@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | Oliver Profaska</title>
+    <style>
+        :root {
+            --primary-blue: #1a3a5f; 
+            --accent-red: #e63946;   
+            --bg-light: #f4f4f9;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: white;
+            width: 90%;
+            max-width: 380px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 10px;
+            color: var(--primary-blue);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .info-row {
+            margin: 18px 0;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+            display: block;
+            color: #888;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .value {
+            font-size: 1.1rem;
+            display: block;
+            margin-top: 2px;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .btn-container {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: block;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-web { background: #2c5282; }
+        .btn-mail { background: #4a5568; }
+        .btn-yt { background: #ff0000; }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="logo-container">
+        <img src="logo.png" alt="FP Fan 08 Logo">
+    </div>
+
+    <h2>Oliver Profaska</h2>
+
+    <div class="info-row">
+        <span class="label">Telefon</span>
+        <a href="tel:+49 171 1571562" class="value">+49 171 1571562</a>
+    </div>
+
+    <div class="info-row">
+        <span class="label">E-Mail</span>
+        <a href="mailto:fpfan08@fotoservice-schiessler.de" class="value">fpfan08@fotoservice-schiessler.de</a>
+    </div>
+
+    <div class="info-row">
+        <span class="label">Adresse</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Kurze+Strasse+7+09390+Gornsdorf" target="_blank" class="value">
+            Kurze Straße 7<br>
+            09390 Gornsdorf
+        </a>
+    </div>
+
+    <div class="btn-container">
+        <a href="https://fpfan08.github.io/fpfan08-webseite/" class="btn btn-web">Zur Website</a>
+        <a href="mailto:fpfan08@fotoservice-schiessler.de" class="btn btn-mail">E-Mail schreiben</a>
+        <a href="https://youtube.com/@fotoserviceschiesslerfpfan08?si=uLMbtPjTkFoWJim-" class="btn btn-yt">YouTube Kanal</a>
+    </div>
+
+    <div class="footer">
+        © 2026 FPfan08
+    </div>
+</div>
+
+</body>
+</html>
