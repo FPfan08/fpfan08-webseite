@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -10,6 +11,7 @@
             --accent-red: #e63946;   
             --bg-light: #f4f4f9;
             --text-dark: #333;
+            --white: #ffffff;
         }
 
         body {
@@ -21,25 +23,84 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
+        /* --- PRELOADER STYLING --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s;
+        }
+
+        .preloader-content {
+            text-align: center;
+        }
+
+        .preloader-logo {
+            height: 100px;
+            width: auto;
+            margin-bottom: 20px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .loading-bar-container {
+            width: 150px;
+            height: 4px;
+            background-color: #eee;
+            border-radius: 10px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            width: 0%;
+            height: 100%;
+            background-color: var(--primary-blue);
+            animation: loadProgress 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0%; margin-left: 0; }
+            50% { width: 100%; margin-left: 0; }
+            100% { width: 0%; margin-left: 100%; }
+        }
+
+        .preloader-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* --- VISITENKARTE STYLING --- */
         .card {
             background: white;
             width: 90%;
             max-width: 380px;
-            /* Padding unten/links/rechts lassen wir, oben entfernen wir es für das Banner */
             padding: 0 0 30px 0; 
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             text-align: center;
-            overflow: hidden; /* Wichtig, damit das Bild oben abgerundet bleibt */
+            overflow: hidden; 
         }
 
-        /* Der Header-Bereich mit dem Bild als Hintergrund */
         .hero-banner {
             position: relative;
             width: 100%;
-            height: 220px; /* Höhe des Banner-Bereichs */
+            height: 240px; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -54,22 +115,20 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Ein dunkler Filter hilft, damit weißer Text/Logo besser lesbar sind */
-            filter: 
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2; /* Liegt über dem Bild */
+            z-index: 2;
+            width: 100%;
         }
 
         .hero-content img {
-            max-width: 160px;
+            max-width: 200px; 
             height: auto;
-            margin-bottom: 10px;
-            /* Optional: Ein leichter Schatten für das Logo */
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            margin-bottom: 5px;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
         }
 
         .hero-content h2 {
@@ -77,11 +136,10 @@
             padding: 0;
             color: white;
             border-bottom: none;
-            font-size: 1.6rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            font-size: 1.7rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
         }
 
-        /* Restliche Inhalte unter dem Banner */
         .card-content {
             padding: 20px;
         }
@@ -139,10 +197,19 @@
 </head>
 <body>
 
+<div id="preloader">
+    <div class="preloader-content">
+        <img src="logo.png" alt="FPfan08 Logo" class="preloader-logo">
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+</div>
+
 <div class="card">
     <div class="hero-banner">
         <img src="IMG_20251113_092917_070541.jpg" alt="Banner Hintergrund" class="banner-bg">
-        
+
         <div class="hero-content">
             <img src="logo.png" alt="FP Fan 08 Logo">
             <h2>Oliver Profaska</h2>
@@ -179,6 +246,18 @@
         © 2026 FPfan08
     </div>
 </div>
+
+<script>
+    // Preloader Ausblend-Logik
+    window.addEventListener("load", function() {
+        const preloader = document.getElementById("preloader");
+        
+        // Kleine Verzögerung für den "Smooth-Faktor"
+        setTimeout(() => {
+            preloader.classList.add("preloader-hidden");
+        }, 800); 
+    });
+</script>
 
 </body>
 </html>
