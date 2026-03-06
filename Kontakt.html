@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -27,44 +27,63 @@
             background: white;
             width: 90%;
             max-width: 380px;
-            padding: 30px 20px; /* Hier sind die 20px Padding links/rechts */
+            /* Padding unten/links/rechts lassen wir, oben entfernen wir es für das Banner */
+            padding: 0 0 30px 0; 
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             text-align: center;
-            overflow: hidden; /* Wichtig, damit das Banner an den Ecken nicht übersteht */
+            overflow: hidden; /* Wichtig, damit das Bild oben abgerundet bleibt */
         }
 
-        .logo-container {
-            margin-bottom: 20px;
-        }
-
-        .logo-container img {
-            max-width: 150px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* Banner Styling */
-        .banner-container {
-            width: calc(100% + 40px); /* 100% + 2x20px Padding */
-            margin-left: -20px;
-            margin-right: -20px;
-            margin-bottom: 20px;
-        }
-
-        .banner-img {
+        /* Der Header-Bereich mit dem Bild als Hintergrund */
+        .hero-banner {
+            position: relative;
             width: 100%;
-            height: auto;
-            display: block;
+            height: 220px; /* Höhe des Banner-Bereichs */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
         }
 
-        h2 {
-            font-size: 1.4rem;
-            margin-top: 10px;
-            color: var(--primary-blue);
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
+        .banner-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ein dunkler Filter hilft, damit weißer Text/Logo besser lesbar sind */
+            filter: brightness(0.7); 
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Liegt über dem Bild */
+        }
+
+        .hero-content img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+            /* Optional: Ein leichter Schatten für das Logo */
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .hero-content h2 {
+            margin: 0;
+            padding: 0;
+            color: white;
+            border-bottom: none;
+            font-size: 1.6rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Restliche Inhalte unter dem Banner */
+        .card-content {
+            padding: 20px;
         }
 
         .info-row {
@@ -91,7 +110,8 @@
         }
 
         .btn-container {
-            margin-top: 30px;
+            margin-top: 20px;
+            padding: 0 20px;
         }
 
         .btn {
@@ -104,10 +124,6 @@
             margin-bottom: 12px;
             font-weight: bold;
             transition: transform 0.2s, background 0.3s;
-        }
-
-        .btn:active {
-            transform: scale(0.98);
         }
 
         .btn-web { background: #2c5282; }
@@ -124,32 +140,33 @@
 <body>
 
 <div class="card">
-    <div class="logo-container">
-        <img src="logo.png" alt="FP Fan 08 Logo">
+    <div class="hero-banner">
+        <img src="banner.jpg" alt="Banner Hintergrund" class="banner-bg">
+        
+        <div class="hero-content">
+            <img src="logo.png" alt="FP Fan 08 Logo">
+            <h2>Oliver Profaska</h2>
+        </div>
     </div>
 
-    <div class="banner-container">
-        <img src="Dynamite.jpg" alt="Oliver Profaska Banner" class="banner-img">
-    </div>
+    <div class="card-content">
+        <div class="info-row">
+            <span class="label">Telefon</span>
+            <a href="tel:+49 171 1571562" class="value">+49 171 1571562</a>
+        </div>
 
-    <h2>Oliver Profaska</h2>
+        <div class="info-row">
+            <span class="label">E-Mail</span>
+            <a href="mailto:fpfan08@fotoservice-schiessler.de" class="value">fpfan08@fotoservice-schiessler.de</a>
+        </div>
 
-    <div class="info-row">
-        <span class="label">Telefon</span>
-        <a href="tel:+49 171 1571562" class="value">+49 171 1571562</a>
-    </div>
-
-    <div class="info-row">
-        <span class="label">E-Mail</span>
-        <a href="mailto:fpfan08@fotoservice-schiessler.de" class="value">fpfan08@fotoservice-schiessler.de</a>
-    </div>
-
-    <div class="info-row">
-        <span class="label">Adresse</span>
-        <a href="https://www.google.com/maps/search/?api=1&query=Kurze+Straße+7+09390+Gornsdorf" target="_blank" class="value">
-            Kurze Straße 7<br>
-            09390 Gornsdorf
-        </a>
+        <div class="info-row">
+            <span class="label">Adresse</span>
+            <a href="https://maps.google.com/?q=Kurze+Straße+7,09390+Gornsdorf" target="_blank" class="value">
+                Kurze Straße 7<br>
+                09390 Gornsdorf
+            </a>
+        </div>
     </div>
 
     <div class="btn-container">
