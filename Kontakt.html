@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -27,10 +27,11 @@
             background: white;
             width: 90%;
             max-width: 380px;
-            padding: 30px 20px;
+            padding: 30px 20px; /* Hier sind die 20px Padding links/rechts */
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             text-align: center;
+            overflow: hidden; /* Wichtig, damit das Banner an den Ecken nicht übersteht */
         }
 
         .logo-container {
@@ -42,6 +43,20 @@
             height: auto;
             display: block;
             margin: 0 auto;
+        }
+
+        /* Banner Styling */
+        .banner-container {
+            width: calc(100% + 40px); /* 100% + 2x20px Padding */
+            margin-left: -20px;
+            margin-right: -20px;
+            margin-bottom: 20px;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         h2 {
@@ -113,6 +128,10 @@
         <img src="logo.png" alt="FP Fan 08 Logo">
     </div>
 
+    <div class="banner-container">
+        <img src="Dynamite.jpg" alt="Oliver Profaska Banner" class="banner-img">
+    </div>
+
     <h2>Oliver Profaska</h2>
 
     <div class="info-row">
@@ -127,7 +146,7 @@
 
     <div class="info-row">
         <span class="label">Adresse</span>
-        <a href="https://www.google.com/maps/search/?api=1&query=Kurze+Strasse+7+09390+Gornsdorf" target="_blank" class="value">
+        <a href="https://www.google.com/maps/search/?api=1&query=Kurze+Straße+7+09390+Gornsdorf" target="_blank" class="value">
             Kurze Straße 7<br>
             09390 Gornsdorf
         </a>
@@ -136,7 +155,7 @@
     <div class="btn-container">
         <a href="https://fpfan08.github.io/fpfan08-webseite/" class="btn btn-web">Zur Website</a>
         <a href="mailto:fpfan08@fotoservice-schiessler.de" class="btn btn-mail">E-Mail schreiben</a>
-        <a href="https://youtube.com/@fotoserviceschiesslerfpfan08?si=uLMbtPjTkFoWJim-" class="btn btn-yt">YouTube Kanal</a>
+        <a href="https://fpfan08.github.io/fpfan08-webseite/social_media.html" class="btn btn-yt">Zu meinen Kanälen</a>
     </div>
 
     <div class="footer">
